@@ -1,0 +1,37 @@
+{
+    "type": 1,
+    "title": "Tautulli",
+    "name": "tautulli",
+    "description": "Tautulli to monitor Plex",
+    "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png",
+    "image": "linuxserver/tautulli:latest",
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "8181:8181/tcp"
+    ],
+    "network_mode": "bridge",
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "/var/data/config/tautulli"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "1000"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "1000"
+      },
+      {
+        "name": "TZ",
+        "label": "TZ",
+        "default": "America/New_York"
+      }
+    ]
+  }
